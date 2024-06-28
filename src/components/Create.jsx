@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
+import { MenuItem, Typography } from "@mui/material";
 
 const logoStyle = {
   width: "25px",
@@ -102,6 +103,13 @@ const CreateUser = ({ onSubmit, mode, toggleColorMode }) => {
                 style={logoStyle}
                 alt="logo of sitemark"
               />
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <Typography variant="body2" color="text.primary">
+                    Supabase Demo
+                  </Typography>
+                </MenuItem>
+              </Box>
             </Box>
             <Box
               sx={{
