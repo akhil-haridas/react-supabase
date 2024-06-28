@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import { AppWrapper, DeleteUser, UpdateUser, UsersList } from "./components";
 import PropTypes from "prop-types";
-import "./styles/Theme.less";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
