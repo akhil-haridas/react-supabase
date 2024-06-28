@@ -108,7 +108,7 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                   aria-label="button to toggle theme"
                   sx={{ minWidth: "32px", height: "32px", p: "4px" }}
                 >
-                  {mode === "dark" ? (
+                  {mode === "light" ? (
                     <WbSunnyRoundedIcon fontSize="small" />
                   ) : (
                     <ModeNightRoundedIcon fontSize="small" />
