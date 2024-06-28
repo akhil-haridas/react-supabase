@@ -35,6 +35,7 @@ const App = () => {
 
   const onSubmit = () => {
     setUser(null)
+    setAction(null)
     fetchUsers()
   }
 
