@@ -6,7 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { alpha } from "@mui/material";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
 
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import ModeNightRoundedIcon from "@mui/icons-material/ModeNightRounded";
@@ -37,25 +36,6 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
   };
 
   return (
-    // <div>
-    //   <h1>Create User</h1>
-    //   <form onSubmit={handleCreateUser}>
-    //     <label>Name</label>
-    //     <input
-    //       type="text"
-    //       value={name}
-    //       onChange={(e) => setName(e.target.value)}
-    //     />
-    //     <label>Age</label>
-    //     <input
-    //       type="number"
-    //       value={age}
-    //       onChange={(e) => setAge(e.target.value)}
-    //     />
-    //     <button type="submit">Create</button>
-    //   </form>
-    // </div>
-
     <div>
       <AppBar
         position="fixed"
@@ -209,6 +189,8 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                 id="outlined-basic"
                 hiddenLabel
                 size="small"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 variant="outlined"
                 aria-label="Enter "
                 placeholder="Enter the name"
@@ -222,6 +204,8 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                 hiddenLabel
                 size="small"
                 variant="outlined"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
                 aria-label="Enter your email address"
                 placeholder="Enter your age"
                 inputProps={{
@@ -229,7 +213,12 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                   "aria-label": "Enter your email address",
                 }}
               />
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                type="button"
+                onClick={handleCreateUser}
+              >
                 Create
               </Button>
             </Stack>

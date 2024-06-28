@@ -1,31 +1,9 @@
 import React from "react";
 import { alpha } from "@mui/material";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+
 
 const UsersList = ({ users, onSelect }) => {
-  // return (
-  //   <div>
-  //     {users.length > 0 ? (
-  //       <ul>
-  //         {users.map((user) => (
-  //           <li key={user.id}>
-  //             {user.name} : {user.age}
-  //             <span onClick={()=> onSelect(user,'update')}>EDIT USER</span>
-  //             <span onClick={()=> onSelect(user,'delete')}>Delete USER</span>
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     ) : (
-  //       <div>No users found</div>
-  //     )}
-  //   </div>
-  // );
 
   return (
     <Box
