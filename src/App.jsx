@@ -41,7 +41,7 @@ const App = () => {
   return (
     <>
       <UsersList users={users} onSelect={onSelect} />
-      <CreateUser />
+      <CreateUser onSubmit={onSubmit}/>
       {action === "update" && (
         <UpdateUser user={user} onSubmit={onSubmit} />
       )}

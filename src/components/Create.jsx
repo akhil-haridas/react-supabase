@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase";
 
-const CreateUser = () => {
+const CreateUser = ({onSubmit}) => {
   const [name, setName] = useState(null);
   const [age, setAge] = useState(null);
 
@@ -13,6 +13,7 @@ const CreateUser = () => {
     }
 
     await supabase.from("users").insert({ name, age });
+    onSubmit();
   };
 
   return (
