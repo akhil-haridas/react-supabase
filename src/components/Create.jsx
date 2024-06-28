@@ -13,8 +13,6 @@ const CreateUser = () => {
     }
 
     await supabase.from("users").insert({ name, age });
-    console.log("NAME:", name);
-    console.log("AGE:", age);
   };
 
   return (
