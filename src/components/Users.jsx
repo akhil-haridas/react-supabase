@@ -86,17 +86,18 @@ const UsersList = ({ users, onSelect }) => {
                   component="th"
                   scope="row"
                   align="center"
-                  onClick={() => onSelect(row, "update")}
+                  style={{ cursor: "pointer" }}
                 >
-                  <Edit />
+                  <Edit
+                    style={{ cursor: "pointer" }}
+                    onClick={() => onSelect(row, "update")}
+                  />
                 </StyledTableCell>
-                <StyledTableCell
-                  component="th"
-                  scope="row"
-                  align="center"
-                  onClick={() => onSelect(row, "delete")}
-                >
-                  <Delete />
+                <StyledTableCell component="th" scope="row" align="center">
+                  <Delete
+                    style={{ cursor: "pointer" }}
+                    onClick={() => onSelect(row, "delete")}
+                  />
                 </StyledTableCell>
               </StyledTableRow>
             ))}
