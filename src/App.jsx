@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
-import { UsersList } from "./components";
+import { CreateUser, UsersList } from "./components";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -29,6 +29,7 @@ const App = () => {
   return (
     <>
       <UsersList users={users} />
+      <CreateUser/>
     </>
   );
 };
