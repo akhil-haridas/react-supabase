@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase";
 
-const UpdateUser = ({ user,onUpdate }) => {
+const UpdateUser = ({ user,onSubmit }) => {
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
 
@@ -12,7 +12,7 @@ const UpdateUser = ({ user,onUpdate }) => {
       return;
     }
     await supabase.from("users").update({ name, age }).eq("id", user.id);
-    onUpdate(null)
+    onSubmit()
   };
 
   return (
