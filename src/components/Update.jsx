@@ -12,7 +12,9 @@ const UpdateUser = ({ user,onSubmit }) => {
       return;
     }
     await supabase.from("users").update({ name, age }).eq("id", user.id);
-    onSubmit()
+    onSubmit();
+    setName("")
+    setAge("")
   };
 
   return (

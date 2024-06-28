@@ -14,6 +14,8 @@ const CreateUser = ({onSubmit}) => {
 
     await supabase.from("users").insert({ name, age });
     onSubmit();
+    setName("")
+    setAge("")
   };
 
   return (
