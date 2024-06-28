@@ -19,8 +19,8 @@ const logoStyle = {
 };
 
 const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
-  const [name, setName] = useState(null);
-  const [age, setAge] = useState(null);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
   const handleCreateUser = async (e) => {
     e.preventDefault();
