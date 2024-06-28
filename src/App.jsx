@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import { CreateUser, DeleteUser, UpdateUser, UsersList } from "./components";
 import PropTypes from "prop-types";
-
+import "./styles/Theme.less";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -58,8 +58,6 @@ const App = () => {
 
   return (
     <ThemeProvider theme={true ? LPtheme : defaultTheme}>
-      {action === "update" && <UpdateUser user={user} onSubmit={onSubmit} />}
-      {action === "delete" && <DeleteUser user={user} onSubmit={onSubmit} />}
       <CssBaseline />
       <CreateUser
         onSubmit={onSubmit}
@@ -67,6 +65,8 @@ const App = () => {
         toggleColorMode={toggleColorMode}
       />
       <UsersList users={users} onSelect={onSelect} />
+      {action === "update" && <UpdateUser user={user} onSubmit={onSubmit} />}
+      {action === "delete" && <DeleteUser user={user} onSubmit={onSubmit} />}
     </ThemeProvider>
   );
 };
