@@ -20,7 +20,7 @@ const logoStyle = {
   cursor: "pointer",
 };
 
-const CreateUser = ({ onSubmit, mode, toggleColorMode, children  }) => {
+const AppWrapper = ({ onSubmit, mode, toggleColorMode, children  }) => {
   const [name, setName] = useState(null);
   const [age, setAge] = useState(null);
 
@@ -237,4 +237,4 @@ const CreateUser = ({ onSubmit, mode, toggleColorMode, children  }) => {
   );
 };
 
-export default CreateUser;
+export default AppWrapper;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
-import { CreateUser, DeleteUser, UpdateUser, UsersList } from "./components";
+import { AppWrapper, CreateUser, DeleteUser, UpdateUser, UsersList } from "./components";
 import PropTypes from "prop-types";
 import "./styles/Theme.less";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -57,12 +57,13 @@ const App = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <CreateUser
+      <AppWrapper
         onSubmit={onSubmit}
         mode={mode}
         toggleColorMode={toggleColorMode}
-      />
-      <UsersList users={users} onSelect={onSelect} />
+      >
+        <UsersList users={users} onSelect={onSelect} />
+      </AppWrapper>
       {action === "update" && <UpdateUser user={user} onSubmit={onSubmit} />}
       {action === "delete" && <DeleteUser user={user} onSubmit={onSubmit} />}
     </ThemeProvider>
