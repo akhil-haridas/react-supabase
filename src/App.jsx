@@ -1,17 +1,43 @@
 import { supabase } from "./supabase";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [users, setUsers] = useState([]);
-
-  console.log("USERS::", users);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchUsers = async () => {
-    const { data } = supabase.from("users").select("*");
-    setUsers(data);
+    try {
+      const { data, error } = await supabase.from("users").select("*");
+      if (error) throw error;
+      setUsers(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  return <div>App</div>;
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div>
+      {users.length > 0 ? (
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <div>No users found</div>
+      )}
+    </div>
+  );
 };
 
 export default App;
