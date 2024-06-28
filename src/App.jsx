@@ -1,9 +1,17 @@
-import React from 'react'
+import { supabase } from "./supabase";
+import React, { useState } from "react";
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const [users, setUsers] = useState([]);
 
-export default App
+  console.log("USERS::", users);
+
+  const fetchUsers = async () => {
+    const { data } = supabase.from("users").select("*");
+    setUsers(data);
+  };
+
+  return <div>App</div>;
+};
+
+export default App;
