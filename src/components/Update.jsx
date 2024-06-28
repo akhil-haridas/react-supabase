@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@mui/material";
 
-const UpdateUser = ({ user,onSubmit }) => {
+const UpdateUser = ({ user,onSubmit, onClose }) => {
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
 
@@ -18,22 +19,54 @@ const UpdateUser = ({ user,onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleUpdateUser}>
-      <h1>Update User</h1>
-      <input
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
+    <DialogTitle>Update User</DialogTitle>
+    <DialogContent>
+      <DialogContentText>
+        Please enter the new name and age for {user.name}.
+      </DialogContentText>
+      <TextField
+        autoFocus
+        margin="dense"
+        label="Name"
         type="text"
-        placeholder="Please enter the new name"
+        fullWidth
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <TextField
+        margin="dense"
+        label="Age"
         type="number"
-        placeholder="Please enter the new age"
+        fullWidth
         value={age}
         onChange={(e) => setAge(e.target.value)}
       />
-      <button type="submit">Update</button>
-    </form>
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={onClose}>Cancel</Button>
+      <Button type="submit" onClick={handleUpdateUser} variant="contained">
+        Update
+      </Button>
+    </DialogActions>
+  </Dialog>
+
+    // <form onSubmit={handleUpdateUser}>
+    //   <h1>Update User</h1>
+    //   <input
+    //     type="text"
+    //     placeholder="Please enter the new name"
+    //     value={name}
+    //     onChange={(e) => setName(e.target.value)}
+    //   />
+    //   <input
+    //     type="number"
+    //     placeholder="Please enter the new age"
+    //     value={age}
+    //     onChange={(e) => setAge(e.target.value)}
+    //   />
+    //   <button type="submit">Update</button>
+    // </form>
   );
 };
 

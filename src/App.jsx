@@ -54,6 +54,10 @@ const App = () => {
     fetchUsers();
   };
 
+  const onClose = () => {
+    setUser(null);
+    setAction(null);
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -64,8 +68,12 @@ const App = () => {
       >
         <UsersList users={users} onSelect={onSelect} />
       </AppWrapper>
-      {action === "update" && <UpdateUser user={user} onSubmit={onSubmit} />}
-      {action === "delete" && <DeleteUser user={user} onSubmit={onSubmit} />}
+      {action === "update" && (
+        <UpdateUser user={user} onSubmit={onSubmit} onClose={onClose} />
+      )}
+      {action === "delete" && (
+        <DeleteUser user={user} onSubmit={onSubmit} onClose={onClose} />
+      )}
     </ThemeProvider>
   );
 };
