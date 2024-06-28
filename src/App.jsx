@@ -8,6 +8,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
+import { CircularProgress } from "@mui/material";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -39,7 +40,22 @@ const App = () => {
     fetchUsers();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div
+        style={{
+          backgroundColor: "transparent",
+          zIndex: 1,
+          width: "100%",
+          height: "100vh",
+          display:'flex',
+          alignContent:'center',
+          justifyContent:'center',
+        }}
+      >
+        <CircularProgress style={{ backgroundColor: "transparent" }} />;
+      </div>
+    );
   if (error) return <div>Error: {error}</div>;
 
   const onSelect = (user, action) => {
