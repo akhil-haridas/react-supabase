@@ -38,10 +38,10 @@ const App = () => {
       <UsersList users={users} onSelect={onSelect} />
       <CreateUser />
       {action === "update" && (
-        <UpdateUser user={user} onSubmit={() => setUser(null)} />
+        <UpdateUser user={user} onSubmit={setUser} />
       )}
       {action === "delete" && (
-        <DeleteUser user={user} onSubmit={() => setUser(null)} />
+        <DeleteUser user={user} onSubmit={setUser} />
       )}
     </>
   );
