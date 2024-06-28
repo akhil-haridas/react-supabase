@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
-import { CreateUser, UsersList } from "./components";
+import { CreateUser, UpdateUser, UsersList } from "./components";
 
 const App = () => {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -28,8 +29,9 @@ const App = () => {
 
   return (
     <>
-      <UsersList users={users} />
+      <UsersList users={users} onClick={(user)=> setUser(user)}/>
       <CreateUser/>
+      {user && <UpdateUser user={user} onUpdate={()=> setUser(null)}/>}
     </>
   );
 };
