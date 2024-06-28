@@ -5,7 +5,7 @@ const DeleteUser = ({ user, onSubmit }) => {
   const handleDeleteUser = async (e) => {
     e.preventDefault();
     await supabase.from("users").delete().eq("id", user.id);
-    onSubmit(null);
+    onSubmit();
   };
 
   return (

@@ -33,15 +33,20 @@ const App = () => {
     setAction(action);
   };
 
+  const onSubmit = () => {
+    setUser(null)
+    fetchUsers()
+  }
+
   return (
     <>
       <UsersList users={users} onSelect={onSelect} />
       <CreateUser />
       {action === "update" && (
-        <UpdateUser user={user} onSubmit={setUser} />
+        <UpdateUser user={user} onSubmit={onSubmit} />
       )}
       {action === "delete" && (
-        <DeleteUser user={user} onSubmit={setUser} />
+        <DeleteUser user={user} onSubmit={onSubmit} />
       )}
     </>
   );
