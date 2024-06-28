@@ -1,5 +1,6 @@
-import { supabase } from "./supabase";
 import React, { useEffect, useState } from "react";
+import { supabase } from "./supabase";
+import { UsersList } from "./components";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -26,19 +27,9 @@ const App = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      {users.length > 0 ? (
-        <ul>
-          {users.map((user) => (
-            <li key={user.id}>
-              {user.name} : {user.age}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div>No users found</div>
-      )}
-    </div>
+    <>
+      <UsersList users={users} />
+    </>
   );
 };
 
