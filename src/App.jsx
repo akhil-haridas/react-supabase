@@ -9,7 +9,6 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
-import getLPTheme from "./styles/Theme";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -18,8 +17,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [mode, setMode] = React.useState("light");
-  const LPtheme = createTheme(getLPTheme(mode));
+  const [mode, setMode] = React.useState("dark");
   const defaultTheme = createTheme({ palette: { mode } });
 
   const toggleColorMode = () => {
@@ -57,7 +55,7 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider theme={true ? LPtheme : defaultTheme}>
+    <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <CreateUser
         onSubmit={onSubmit}
