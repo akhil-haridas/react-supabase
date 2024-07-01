@@ -43,7 +43,8 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
           boxShadow: 0,
           bgcolor: "transparent",
           backgroundImage: "none",
-          mt: 2,
+          mt: 7,
+          mb: 5,
         }}
       >
         <Container maxWidth="lg">
