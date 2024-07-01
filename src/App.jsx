@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import { AppWrapper, DeleteUser, UpdateUser, UsersList } from "./components";
-import PropTypes from "prop-types";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import { CircularProgress } from "@mui/material";
 
 const App = () => {
