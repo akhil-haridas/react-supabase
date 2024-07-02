@@ -5,29 +5,12 @@ import {
     Typography,
     Button,
     Grid,
-    TextField,
     Box,
     Container,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { calculateExpressions } from "../utils/calculate";
 
-const EXPRESSIONS = [
-    "1",
-    "2",
-    "3",
-    "+",
-    "4",
-    "5",
-    "6",
-    "-",
-    "7",
-    "8",
-    "9",
-    "*",
-    ".",
-    "0",
-    "/",
-];
 
 const CalculatorButton = styled(Button)(({ theme }) => ({
     minWidth: "64px",
@@ -63,19 +46,16 @@ const Calculator = () => {
                 >
                     <Grid item xs={4}>
                         <Grid container>
-                            {EXPRESSIONS.map((value) => (
-                                <Grid item xs={3} key={value}>
-                                    <CalculatorButton variant="contained">
-                                        {value}
+                            {calculateExpressions.map((exp) => (
+                                <Grid item xs={3} key={exp.value}>
+                                    <CalculatorButton variant="contained" color={exp.color}>
+                                        {exp.value}
                                     </CalculatorButton>
                                 </Grid>
                             ))}
-                            <CalculatorButton variant="contained" color="warning">
-                                AC
-                            </CalculatorButton>
                         </Grid>
                     </Grid>
-                    <Grid container xs={6} gap={5}>
+                    <Grid item container xs={6} gap={5}>
                         <Grid container gap={5} justifyContent={"space-around"}>
                             <Typography variant="h4">11</Typography>
                             <Typography variant="h4">+</Typography>
