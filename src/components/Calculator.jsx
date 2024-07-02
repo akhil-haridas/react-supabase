@@ -80,7 +80,7 @@ const Calculator = () => {
                             <Typography variant="h4">11</Typography>
                             <Typography variant="h4">+</Typography>
                             <Typography variant="h4">22</Typography>
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="success">
                                 ANSWER
                             </Button>
                         </Grid>
