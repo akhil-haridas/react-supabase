@@ -51,6 +51,15 @@ const Calculator = () => {
             console.error("Error:", error.message);
         }
     }
+
+    const handleClear = () => {
+        setLhs("");
+        setRhs("");
+        setExpression("lhs")
+        setOperator("+");
+        setResult("0");
+    }
+
     return (
         <Box sx={{ flexGrow: 1, marginTop: "100px", width: "100%" }}>
             <AppBar
@@ -83,7 +92,7 @@ const Calculator = () => {
                                     </CalculatorButton>
                                 </Grid>
                             ))}
-                            <CalculatorButton variant="contained" color="error" onClick={() => handleExpression()}>
+                            <CalculatorButton variant="contained" color="error" onClick={handleClear}>
                                 AC
                             </CalculatorButton>
                         </Grid>
