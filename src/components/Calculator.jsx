@@ -11,7 +11,6 @@ import {
 import { styled } from "@mui/system";
 import { calculateExpressions } from "../utils/calculate";
 
-
 const CalculatorButton = styled(Button)(({ theme }) => ({
     minWidth: "64px",
     minHeight: "64px",
@@ -46,8 +45,8 @@ const Calculator = () => {
                 >
                     <Grid item xs={4}>
                         <Grid container>
-                            {calculateExpressions.map((exp) => (
-                                <Grid item xs={3} key={exp.value}>
+                            {calculateExpressions.map((exp, index) => (
+                                <Grid item xs={3} key={index}>
                                     <CalculatorButton variant="contained" color={exp.color}>
                                         {exp.value}
                                     </CalculatorButton>
