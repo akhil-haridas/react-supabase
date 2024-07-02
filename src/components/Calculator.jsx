@@ -99,9 +99,9 @@ const Calculator = () => {
                     </Grid>
                     <Grid item container xs={6} gap={5}>
                         <Grid container gap={5} justifyContent={"space-around"}>
-                            <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("lhs")}>{!lhs ? 0 : lhs}</Typography>
+                            <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onDoubleClick={() => setLhs("")} onClick={() => setExpression("lhs")}>{!lhs ? 0 : lhs}</Typography>
                             <Typography variant="h4">{opertaor}</Typography>
-                            <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("rhs")}>{!rhs ? 0 : rhs}</Typography>
+                            <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onDoubleClick={() => setRhs("")} onClick={() => setExpression("rhs")}>{!rhs ? 0 : rhs}</Typography>
                             <Button variant="contained" disabled={!lhs || !rhs} color="success" onClick={handleCalculate}>CALCULATE</Button>
                         </Grid>
                         <Grid container gap={5} justifyContent={"center"}>
