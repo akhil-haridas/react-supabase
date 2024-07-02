@@ -190,8 +190,7 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
               color="text.secondary"
               sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
             >
-              Learn how to create a Supabase project, add some sample data to
-              your database, and query the data from a React app
+              My Supabase React app project explores CRUD operations, real-time updates, and edge functions to enhance application functionality and efficiency.
             </Typography>
             <Stack
               direction={{ xs: "column", sm: "row" }}
