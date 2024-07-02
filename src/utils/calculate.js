@@ -11,8 +11,7 @@ export const calculateExpressions = [
     { value: "8", color: "info" },
     { value: "9", color: "info" },
     { value: "*", color: "warning" },
+    { value: ".", color: "info" },
     { value: "0", color: "info" },
-    { value: ".", color: "warning" },
     { value: "/", color: "warning" },
-    { value: "AC", color: "error" },
 ];
