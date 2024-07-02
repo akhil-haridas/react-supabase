@@ -1,4 +1,4 @@
-import {corsHeaders } from 'src/utils/cors.js'
+import { corsHeaders } from '../_shared/cors.ts'
 import "https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts"
 
 console.log("Hello from Functions!")
