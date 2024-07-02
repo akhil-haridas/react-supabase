@@ -43,6 +43,7 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
       });
       if (error) throw error;
       console.log("Response:", data);
+      window.alert("Hello World From Edge Functions💖")
     } catch (error) {
       console.error("Error:", error.message);
     }
@@ -241,7 +242,7 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                 type="button"
                 onClick={handleEdgeFuncCall}
               >
-                Edge Func
+                Hello World
               </Button>
             </Stack>
           </Stack>
