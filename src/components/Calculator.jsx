@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { calculateExpressions } from "../utils/calculate";
+import { supabase } from "../supabase";
 
 const CalculatorButton = styled(Button)(({ theme }) => ({
     minWidth: "64px",
@@ -36,6 +37,20 @@ const Calculator = () => {
             else if (expression === "rhs") setRhs((prev) => prev + value);
         }
     };
+
+    const handleCalculate = async (e) => {
+        e.preventDefault();
+        try {
+            const { data, error } = await supabase.functions.invoke("calculation", {
+                body: { lhs, opertaor, rhs },
+            });
+            if (error) throw error;
+            console.log("Response:", data);
+            setResult(data?.result)
+        } catch (error) {
+            console.error("Error:", error.message);
+        }
+    }
     return (
         <Box sx={{ flexGrow: 1, marginTop: "100px", width: "100%" }}>
             <AppBar
@@ -78,9 +93,7 @@ const Calculator = () => {
                             <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("lhs")}>{!lhs ? 0 : lhs}</Typography>
                             <Typography variant="h4">{opertaor}</Typography>
                             <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("rhs")}>{!rhs ? 0 : rhs}</Typography>
-                            <Button variant="contained" disabled={!lhs || !rhs} color="success">
-                                ANSWER
-                            </Button>
+                            <Button variant="contained" disabled={!lhs || !rhs} color="success" onClick={handleCalculate}>ANSWER</Button>
                         </Grid>
                         <Grid container gap={5} justifyContent={"center"}>
                             <Typography variant="h1">=</Typography>
