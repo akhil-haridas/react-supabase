@@ -1,50 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Grid,
+  TextField,
+  Box,
+  Container,
+} from "@mui/material";
+import { styled } from "@mui/system";
 
-import "../styles/calculator.css";
-import { Container, Stack } from "@mui/material";
+const EXPRESSIONS = [
+  "1",
+  "2",
+  "3",
+  "+",
+  "4",
+  "5",
+  "6",
+  "-",
+  "7",
+  "8",
+  "9",
+  "*",
+  "0",
+  ".",
+  "/",
+  "AC",
+];
+
+const CalculatorButton = styled(Button)(({ theme }) => ({
+  minWidth: "64px",
+  minHeight: "64px",
+  margin: theme.spacing(1),
+  fontSize: "1.5rem",
+}));
+
 const Calculator = () => {
   return (
-    // <div className="calculator">
-    //   <div className="calculator__output">0</div>
-    //   <div className="calculator__keys">
-    //     <button className="calculator__key calculator__key--operator">+</button>
-    //     <button className="calculator__key calculator__key--operator">-</button>
-    //     <button className="calculator__key calculator__key--operator">
-    //       &times;
-    //     </button>
-    //     <button className="calculator__key calculator__key--operator">÷</button>
-    //     <button className="calculator__key">7</button>
-    //     <button className="calculator__key">8</button>
-    //     <button className="calculator__key">9</button>
-    //     <button className="calculator__key">4</button>
-    //     <button className="calculator__key">5</button>
-    //     <button className="calculator__key">6</button>
-    //     <button className="calculator__key">1</button>
-    //     <button className="calculator__key">2</button>
-    //     <button className="calculator__key">3</button>
-    //     <button className="calculator__key">0</button>
-    //     <button className="calculator__key">.</button>
-    //     <button className="calculator__key">AC</button>
-    //     <button className="calculator__key calculator__key--enter">=</button>
-    //   </div>
-    // </div>
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        pt: { xs: 14, sm: 20 },
-        pb: { xs: 8, sm: 12 },
-        mt: {xs:3, sm:10},
-        backgroundColor: "red"
-      }}
-    >
-      <Stack
-        spacing={2}
-        useFlexGap
-        sx={{ width: { xs: "100%", sm: "70%" } }}
-      ></Stack>
-    </Container>
+    <Box sx={{ flexGrow: 1, marginTop: "100px", width: "100%" }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "black", borderRadius: "15px" }}
+      >
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            Supabase - Calculator
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container maxWidth="md">
+        <Grid container spacing={2} sx={{ mt: 2 }}>
+          <Grid item xs={4}>
+            <Grid container spacing={1}>
+              {EXPRESSIONS.map((value) => (
+                <Grid item xs={3} key={value}>
+                  <CalculatorButton variant="contained">
+                    {value}
+                  </CalculatorButton>
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+          <Grid item xs={8}>
+            <TextField
+              variant="outlined"
+              //   fullWidth
+              placeholder="Enter expression"
+            />
+            <Grid item xs={2}>
+              <CalculatorButton variant="contained" color="primary">
+                ANSWER
+              </CalculatorButton>
+            </Grid>
+            <TextField
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={6}
+              placeholder="Enter expression"
+            />
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
