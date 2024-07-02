@@ -24,17 +24,19 @@ const EXPRESSIONS = [
   "8",
   "9",
   "*",
-  "0",
   ".",
+  "0",
   "/",
-  "AC",
 ];
 
 const CalculatorButton = styled(Button)(({ theme }) => ({
   minWidth: "64px",
   minHeight: "64px",
+  borderRadius: "50%",
   margin: theme.spacing(1),
   fontSize: "1.5rem",
+//   color:"black",
+//   backgroundColor:"#fff",
 }));
 
 const Calculator = () => {
@@ -50,10 +52,19 @@ const Calculator = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="md">
-        <Grid container spacing={2} sx={{ mt: 2 }}>
+      <Container>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            mt: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        >
           <Grid item xs={4}>
-            <Grid container spacing={1}>
+            <Grid container>
               {EXPRESSIONS.map((value) => (
                 <Grid item xs={3} key={value}>
                   <CalculatorButton variant="contained">
@@ -61,26 +72,22 @@ const Calculator = () => {
                   </CalculatorButton>
                 </Grid>
               ))}
+              <CalculatorButton variant="contained" color="warning">AC</CalculatorButton>
             </Grid>
           </Grid>
-          <Grid item xs={8}>
-            <TextField
-              variant="outlined"
-              //   fullWidth
-              placeholder="Enter expression"
-            />
-            <Grid item xs={2}>
-              <CalculatorButton variant="contained" color="primary">
+          <Grid container xs={6} gap={5}>
+            <Grid container gap={5} justifyContent={"space-around"}>
+              <Typography variant="h4">11</Typography>
+              <Typography variant="h4">+</Typography>
+              <Typography variant="h4">22</Typography>
+              <Button variant="contained" color="primary">
                 ANSWER
-              </CalculatorButton>
+              </Button>
             </Grid>
-            <TextField
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={6}
-              placeholder="Enter expression"
-            />
+            <Grid container gap={5} justifyContent={"center"}>
+              <Typography variant="h1">=</Typography>
+              <Typography variant="h1">33</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Container>
