@@ -35,6 +35,19 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
     setAge("");
   };
 
+  const handleEdgeFuncCall = async (e) => {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.functions.invoke("hello-world", {
+        body: { name: "Check Functions" },
+      });
+      if (error) throw error;
+      console.log("Response:", data);
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
+  };
+
   return (
     <div>
       <AppBar
@@ -221,6 +234,14 @@ const AppWrapper = ({ onSubmit, mode, toggleColorMode, children }) => {
                 onClick={handleCreateUser}
               >
                 Create
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                type="button"
+                onClick={handleEdgeFuncCall}
+              >
+                Edge Func
               </Button>
             </Stack>
           </Stack>
