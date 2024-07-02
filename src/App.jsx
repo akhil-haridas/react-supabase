@@ -4,6 +4,7 @@ import { AppWrapper, DeleteUser, UpdateUser, UsersList } from "./components";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CircularProgress } from "@mui/material";
+import Calculator from "./components/Calculator";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -76,6 +77,7 @@ const App = () => {
         toggleColorMode={toggleColorMode}
       >
         <UsersList users={users} onSelect={onSelect} />
+        <Calculator/>
       </AppWrapper>
       {action === "update" && (
         <UpdateUser user={user} onSubmit={onSubmit} onClose={onClose} />
