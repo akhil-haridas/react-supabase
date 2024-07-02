@@ -102,7 +102,7 @@ const Calculator = () => {
                             <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("lhs")}>{!lhs ? 0 : lhs}</Typography>
                             <Typography variant="h4">{opertaor}</Typography>
                             <Typography variant="h4" sx={{ cursor: 'pointer', '&:hover': { transform: 'scale(1.1)', color: 'gray' } }} onClick={() => setExpression("rhs")}>{!rhs ? 0 : rhs}</Typography>
-                            <Button variant="contained" disabled={!lhs || !rhs} color="success" onClick={handleCalculate}>ANSWER</Button>
+                            <Button variant="contained" disabled={!lhs || !rhs} color="success" onClick={handleCalculate}>CALCULATE</Button>
                         </Grid>
                         <Grid container gap={5} justifyContent={"center"}>
                             <Typography variant="h1">=</Typography>
