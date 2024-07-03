@@ -46,7 +46,7 @@ const Calculator = () => {
             });
             if (error) throw error;
             console.log("Response:", data);
-            setResult(data?.result)
+            setResult(data?.result.toFixed(3))
         } catch (error) {
             console.error("Error:", error.message);
         }
